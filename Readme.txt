@@ -1,26 +1,38 @@
-You recently had a state of the art security system installed in your home. The master control panel requires a series of bi?colored chips to be placed end to end in a specific sequence in order to gain access. The security provider split up the chips and gave a random number to each of your family members. All of you must convene in order to assemble the chips and create the correct color combination. The access panel has a channel for the security chips. On each end of the channel is a colored marker starting with blue and ending with green. Chips are placed end to end such that the adjacent colors match and the starting and ending chips are color matched to the corresponding markers.
+# Chip Sequence Solver
 
-You are given a set of bi-colored chips and an empty channel the chips can be slotted into. On each end of the channel is a colored marker, with the starting marker being blue and the ending marker being green. Chips are to be placed end to end into the channel such that the adjacent colors match and the starting and ending chips are color matched to the corresponding markers. As an example, you are given the following chips:
+This repository contains a solution to the chip sequence problem where the goal is to find a valid sequence of chips that starts with `Blue` and ends with `Green`. The sequence of chips must connect in such a way that the `EndColor` of one chip matches the `StartColor` of the next chip.
 
-[Blue, Yellow]
-[Red, Green]
-[Yellow, Red]
-[Orange, Purple]
+Two algorithms have been implemented to solve this problem:
 
-The result that successfully links the blue and green markers is:
+1. **Depth First Search (DFS)** - This algorithm explores all possible sequences recursively and finds the longest valid sequence. 
+2. **Greedy Algorithm** - This algorithm builds the sequence by always picking the first available chip that matches the current color. It is designed for graphs with a large number of nodes, aiming to find a solution more quickly.
 
-Blue [Blue,Yellow] [Yellow, Red] [Red, Green] Green
+## How It Works
 
-In this instance, [Orange, Purple] is not used.
+- The program uses a set of bi-colored chips, each having a `StartColor` and an `EndColor`.
+- The goal is to connect these chips in a way that the `StartColor` of the first chip matches `Blue`, and the `EndColor` of the last chip matches `Green`.
+- Both algorithms attempt to find the longest possible sequence, using different strategies.
 
-Your task is to write an algorithm that can successfully determine whether a given bag of color coded chips can link from end to end. 
+### Algorithms:
 
-You may NOT modify Color.cs, ColorChip.cs or Constants.cs. 
+- **DFS**: This approach recursively explores all potential sequences and returns the one with the maximum number of chips, ensuring that the sequence ends with `Green`.
+  
+- **Greedy**: This method iteratively picks the first available chip that matches the current color and adds it to the sequence.
 
-You MAY modify Program.cs and add any amount of code among any number of files to successfully complete the task.
+## Installation
 
-You can assume the beginning marker is always Blue, and the ending marker is always Green.
+To run the project locally:
 
-You do not need to find ALL solutions. Any solution is acceptable, but the solution must use the most number of chips.
+1. Clone this repository to your local machine
 
-Asking questions is allowed and there are no tricks or gotchas that would trip you up. 
+2. Open the project in your favorite C# IDE or text editor.
+
+3. Build and run the project.
+
+## Contributing
+
+Feel free to open issues or submit pull requests to improve the solution.
+
+## License
+
+This project is licensed under the CT License
